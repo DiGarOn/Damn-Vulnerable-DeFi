@@ -1,0 +1,14 @@
+Even on a bear market, the devs behind [the lending pool](https://damnvulnerabledefi.xyz/challenges/puppet-v2/) kept building.
+
+In the latest version, they’re using Uniswap V3 as an oracle. That’s right, no longer using spot prices! This time the pool queries the time-weighted average price of the asset, with all the recommended libraries.
+
+The Uniswap market has 100 WETH and 100 DVT in liquidity. The lending pool has a million DVT tokens.
+
+Starting with 1 ETH and some DVT, pass this challenge by taking all tokens from the lending pool.
+
+_NOTE: unlike others, this challenge requires you to set a valid RPC URL in the challenge’s test file to fork mainnet state into your local environment._
+
+- [See the contracts](https://github.com/tinchoabbate/damn-vulnerable-defi/tree/v3.0.0/contracts/puppet-v3)
+- [Complete the challenge](https://github.com/tinchoabbate/damn-vulnerable-defi/blob/v3.0.0/test/puppet-v3/puppet-v3.challenge.js)
+___
+## Solution:
